@@ -1,6 +1,6 @@
-import React, { FC, useCallback, useEffect, useReducer, useState } from 'react';
+import React, { FC, useEffect, useReducer } from 'react';
 import './Dashboard.css';
-import tTestReducer, { TTestState, ReducerActionType, Group, CalculatedData } from './reducer';
+import tTestReducer, { TTestState, ReducerActionType } from './reducer';
 import Field from '../Field/Field';
 import Result from '../Result/Result';
 import { calculateGroupData, getProbability } from '../../services';

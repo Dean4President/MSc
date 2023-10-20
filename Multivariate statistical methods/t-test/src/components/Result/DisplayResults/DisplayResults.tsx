@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import * as _ from 'lodash';
 
 interface DisplayResultsProps {

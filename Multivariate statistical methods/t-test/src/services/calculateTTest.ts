@@ -1,4 +1,4 @@
-import { CalculatedData, CalculatedGroupData, TTestState } from "../components/Dashboard/reducer";
+import { CalculatedData, TTestState } from "../components/Dashboard/reducer";
 import _ from "lodash";
 var ttest2 = require( '@stdlib/stats-ttest2' );
 

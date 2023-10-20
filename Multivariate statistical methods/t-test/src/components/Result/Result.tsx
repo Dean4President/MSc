@@ -1,5 +1,5 @@
-import React, { FC, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import React, { FC } from 'react';
+import { Button } from 'react-bootstrap';
 import SignificanceLevel from './SignificanceLevel/SignificanceLevel';
 import DisplayResults from './DisplayResults/DisplayResults';
 
