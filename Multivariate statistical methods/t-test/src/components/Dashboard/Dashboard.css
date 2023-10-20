@@ -1,0 +1,31 @@
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    grid-template-areas:
+        "group1 result"
+        "group2 result";
+    column-gap: 1rem;
+    row-gap: 1rem;
+    max-width: 1000px;
+}
+
+.group1 {
+    grid-area: group1;
+}
+
+.group2 {
+    grid-area: group2;
+}
+
+.result {
+    grid-area: result;
+}

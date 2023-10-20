@@ -1,0 +1,15 @@
+.card-item {
+    flex: 0 1 15%;
+}
+
+.card-item:hover {
+    background-color: #FDEAEA;
+    color: #A85959;
+}
+
+a.fill-div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
