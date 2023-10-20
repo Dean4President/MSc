@@ -20,6 +20,14 @@ const SignificanceLevel: FC<SignificanceLevelProps> = ({significanceLevel, setSi
             inline
             name={'significaceLevel'}
             type={'radio'}
+            label={'0.005'}
+            checked={significanceLevel === 0.005}
+            onChange={() => handleChange(0.005)}
+          />
+          <Form.Check
+            inline
+            name={'significaceLevel'}
+            type={'radio'}
             label={'0.01'}
             checked={significanceLevel === 0.01}
             onChange={() => handleChange(0.01)}
@@ -31,14 +39,6 @@ const SignificanceLevel: FC<SignificanceLevelProps> = ({significanceLevel, setSi
             label={'0.05'}
             checked={significanceLevel === 0.05}
             onChange={() => handleChange(0.05)}
-          />
-          <Form.Check
-            inline
-            name={'significaceLevel'}
-            type={'radio'}
-            label={'0.10'}
-            checked={significanceLevel === 0.1}
-            onChange={() => handleChange(0.1)}
           />
         </div>
       </Form>

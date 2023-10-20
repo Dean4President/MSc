@@ -19,11 +19,10 @@ const Result: FC<ResultProps> = ({significanceLevel, t, p, setSignificaceLevel, 
   }
 
   return (
-    <div className='card bg-light w-100 h-100 p-4'>
+    <div className='card bg-light w-100 h-100 p-3'>
       <SignificanceLevel significanceLevel={significanceLevel} setSignificaceLevel={setSignificaceLevel} />
       <DisplayResults t={t} p={p}/>
-      <Button className='mt-auto mb-3' variant='dark' onClick={calculate}>Calculate</Button>
-      <Button variant='danger' onClick={refresh}>Reset all</Button>
+      <Button className='mt-auto' variant='danger' onClick={refresh}>Reset all</Button>
     </div>
   );
 }

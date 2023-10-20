@@ -7,6 +7,9 @@ interface DisplayResultsProps {
 }
 
 const DisplayResults: FC<DisplayResultsProps> = ({t, p}) => {
+  if(!(t && p)) {
+    return null;
+  }
 
   return (
     <>
