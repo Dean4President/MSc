@@ -26,7 +26,7 @@ export const calculateGroupData = (state: TTestState): CalculatedData => {
     return result;
 };
 
-export const getT = (state: TTestState) => {
+const getT = (state: TTestState) => {
     const { group1, group2 } = state.data;
     if(!(group1.items && group2.items)) {
         return 0;
@@ -37,7 +37,7 @@ export const getT = (state: TTestState) => {
     return t;
 };
 
-export const getP = (state: TTestState) => {
+const getP = (state: TTestState) => {
     const { group1, group2, significanceLevel } = state.data;
     if(group1.items.length === 0 || group2.items.length === 0) {
         return 0;
@@ -48,3 +48,7 @@ export const getP = (state: TTestState) => {
 
     return _.round(stat.pValue, 3);
 };
+
+export const getProbability = (state: TTestState): {t: number, p: number} => {
+    return { t: getT(state), p: getP(state) };
+}

@@ -3,46 +3,41 @@ import './Dashboard.css';
 import tTestReducer, { TTestState, ReducerActionType, Group, CalculatedData } from './reducer';
 import Field from '../Field/Field';
 import Result from '../Result/Result';
-import { calculateGroupData, getP, getT } from '../../services';
+import { calculateGroupData, getProbability } from '../../services';
 
 const Dashboard: FC = () => {
   const [reducerState, dispatch] = useReducer(tTestReducer, TTestState.initialValue);
 
-  const recalculate = async (): Promise<void> => {
-    await dispatch({type: ReducerActionType.CALCULATE_GROUP_DATA, item: calculateGroupData(reducerState)});
-    await dispatch({type: ReducerActionType.CALCULATE_PROBABILITY, item: {t: getT(reducerState), p: getP(reducerState)}});
+  const recalculate = (): void => {
+    dispatch({type: ReducerActionType.CALCULATE_GROUP_DATA, item: calculateGroupData(reducerState)});
+    dispatch({type: ReducerActionType.CALCULATE_PROBABILITY, item: getProbability(reducerState)});
   };
 
-  const addItemToGroup1 = async (item: number): Promise<void> => {
-    await dispatch({type: ReducerActionType.ADD_GROUP_ONE, item});
-    await recalculate();
+  useEffect(recalculate, [reducerState]);
+
+  const addItemToGroup1 = (item: number): void => {
+    dispatch({type: ReducerActionType.ADD_GROUP_ONE, item});
   };
-  const addItemToGroup2 = async (item: number): Promise<void> => {
-    await dispatch({type: ReducerActionType.ADD_GROUP_TWO, item});
-    await recalculate();
+  const addItemToGroup2 = (item: number): void => {
+    dispatch({type: ReducerActionType.ADD_GROUP_TWO, item});
   };
 
-  const deleteItemFromGroup1 = async (item: number): Promise<void> => {
-    await dispatch({type: ReducerActionType.DELETE_ONE_GROUP_ONE, item});
-    await recalculate();
+  const deleteItemFromGroup1 = (item: number): void => {
+    dispatch({type: ReducerActionType.DELETE_ONE_GROUP_ONE, item});
   };
-  const deleteItemFromGroup2 = async (item: number): Promise<void> => {
-    await dispatch({type: ReducerActionType.DELETE_ONE_GROUP_TWO, item});
-    await recalculate();
+  const deleteItemFromGroup2 = (item: number): void => {
+    dispatch({type: ReducerActionType.DELETE_ONE_GROUP_TWO, item});
   };
 
-  const resetGroup1 = async (): Promise<void> => {
-    await dispatch({type: ReducerActionType.RESET_GROUP_ONE});
-    await recalculate();
+  const resetGroup1 = (): void => {
+    dispatch({type: ReducerActionType.RESET_GROUP_ONE});
   };
-  const resetGroup2 = async (): Promise<void> => {
-    await dispatch({type: ReducerActionType.RESET_GROUP_TWO});
-    await recalculate();
+  const resetGroup2 = (): void => {
+    dispatch({type: ReducerActionType.RESET_GROUP_TWO});
   };
 
-  const setSignificaceLevel = async (item: number): Promise<void> => {
-    await dispatch({type: ReducerActionType.SET_SIGNIFICANCE_LEVEL, item});
-    await recalculate();
+  const setSignificaceLevel = (item: number): void => {
+    dispatch({type: ReducerActionType.SET_SIGNIFICANCE_LEVEL, item});
   }
 
   const resetAll = (): void => {

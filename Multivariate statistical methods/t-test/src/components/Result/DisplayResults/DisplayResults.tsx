@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Form } from 'react-bootstrap';
+import * as _ from 'lodash';
 
 interface DisplayResultsProps {
   t: number;
@@ -14,7 +14,11 @@ const DisplayResults: FC<DisplayResultsProps> = ({t, p}) => {
         <span className='text-center fst-italic'>t = {t}</span>
       </div>
       <div className='card w-100 mb-3 py-2'>
-        <span className='text-center fst-italic'>P(|t| {'>'} {Math.abs(t)}) = {p}</span>
+        <span className='text-center fst-italic'>
+          P(|t| {'>'} {Math.abs(t)}) = {p}
+          <br />
+          P = {_.round(p * 100, 1)}%
+          </span>
       </div>
     </>
   );
